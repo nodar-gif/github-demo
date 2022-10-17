@@ -18,24 +18,24 @@
 name: GitHubActions-Demo
 
 on: 
-  push:
-    branches: 
+ push:
+   branches: 
     - master
 
 jobs:
-  demo_testing:
-    name: test to staging
-    runs-on: ubuntu-latest
+ demo_testing:
+  name: test to staging
+  runs-on: ubuntu-latest
 
-    steps:
-    - name: Print Hello Message in Testing
-      run : echo "Hello World from Testing job"
+  steps:
+   - name: Print Hello Message in Testing
+     run : echo "Hello World from Testing job"
       
-  demo_deploy:
-    name: test to deploing
-    runs-on: ubuntu-latest
+ demo_deploy:
+  name: test to deploing
+  runs-on: ubuntu-latest
 
-    steps:
-    - name: Print Hello Message in Deploy
-      run : echo "Hello World from Deploy job"
+  steps:
+   - name: Print Hello Message in Deploy
+     run : echo "Hello World from Deploy job"
       
