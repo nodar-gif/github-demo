@@ -9,3 +9,10 @@ jobs:
     steps:
      - name: Print Hello Message in Testing
        run : echo "Hello World from Testing job"
+  
+  demo_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: Print Hello Message in Deploy
+       run : echo "Hello World from Deploy job"
