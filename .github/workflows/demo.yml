@@ -1,0 +1,39 @@
+#=======================================================
+# GitHub Action Workflow Demo
+# Project: https://gitlab.com/gitlabtest117/test1
+# Connection: nmomtselidze@gmail.com / Mono-26@5
+#
+# Github Actions— Everything You Need to Know to Get Started
+# https://towardsdatascience.com/github-actions-everything-you-need-to-know-to-get-started-537f1dffa0ed
+#
+# Version      Date        Info
+# 1.0          2022        Initial Version
+#
+# Made by Nodar Momtselidze ADV-IT Copyleft (c) 2022
+#========================================================
+# Both GitLab CI/CD and GitHub Actions allow you to run workflows at a specific interval. 
+# In GitLab CI/CD, pipeline schedules are configured with the UI, while in GitHub Actions you can trigger a workflow on a scheduled interval with the "on" key.
+# For more information, see "Events that trigger workflows."
+#========================================================
+name: GitHubActions-Demo
+
+on: 
+  push:
+    branches: 
+      - master
+
+jobs:
+  demo_testing:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Print Hello Message in Testing
+      run : echo "Hello World from Testing job"
+      
+  demo_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Print Hello Message in Deploy
+      run : echo "Hello World from Deploy job"
+      
