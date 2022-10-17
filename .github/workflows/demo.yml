@@ -4,6 +4,7 @@ on: [push]
     
 jobs:
   demo_testing:
+    name: test to staging
     runs-on: ubuntu-latest    
 
     steps:
@@ -11,6 +12,7 @@ jobs:
        run : echo "Hello World from Testing job"
   
   demo_deploy:
+    name: test to deploing
     runs-on: ubuntu-latest
 
     steps:
