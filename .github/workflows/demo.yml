@@ -19,10 +19,6 @@ env:
   DEPLOY_PACKAGE_NAME : "flask-deploy-ver-${{ github.sha }}"
   
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: 
-  push:
-    branches: 
-     - master
 
     
 jobs:
