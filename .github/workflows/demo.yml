@@ -20,7 +20,12 @@ env:
   
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
-    
+on: 
+  push:
+    branches: 
+     - master
+
+
 jobs:
   demo_testing:
     name: test to staging
