@@ -20,7 +20,7 @@ name: GitHubActions-Demo
 on: 
   push:
     branches: 
-      - master
+    - master
 
 jobs:
   demo_testing:
