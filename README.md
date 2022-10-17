@@ -1,3 +1,3 @@
 # GitHubActions-Demo
-# by Nodar Momtselidze
+# by Denis Astahov & Nodar Momtselidze
 #    15.10.2022
