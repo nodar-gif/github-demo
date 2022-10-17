@@ -1,4 +1,8 @@
 name: GitHub Actions Demo
+env:
+  APPLICATION_NAME    : "DemoFlask"
+  DEPLOY_PACKAGE_NAME : "flask-deploy-ver-${{ github.sha }}"
+  
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
     
@@ -30,6 +34,29 @@ jobs:
     name: test to deploing
     runs-on: ubuntu-latest
 
+    needs: [demo_testing]
+    env:
+      VAR1 : "This is Job Level Variable1"
+      VAR2 : "This is Job Lebel Variable2"
+    
     steps:
-     - name: Print Hello Message in Deploy
-       run : echo "Hello World from Deploy job"
+    - name: Print Hello Message in Deploy
+      run : echo "Hello World from Deploy job"
+      
+    - name: Print env vars
+      run : |
+        echo "Var1 = ${{ env.VAR1 }}"
+        echo "Var2 = ${{ env.VAR2 }}"
+        echo "Var3 = $LOCAL_VAR"
+      env:
+        LOCAL_VAR: "This is Superr local Environment variable"
+
+    
+    - name: Printing Deployment package
+      run : echo "Deplyo pakcage name is ${{ env.DEPLOY_PACKAGE_NAME }}"
+    
+    - name: Lets test some packages if they are here 1
+      run : aws --version
+
+    - name: Lets test some packages if they are here 2
+      run : zip --version       
