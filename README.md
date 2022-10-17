@@ -1,1 +1,2 @@
-# github-demo
+# GitHubActions-Demo
+# by Nodar Momtselidze
