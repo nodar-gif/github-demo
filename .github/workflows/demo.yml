@@ -17,10 +17,7 @@
 #========================================================
 name: GitHubActions-Demo
 
-on: 
-  push:
-    branches: 
-    - master
+
 
 jobs:
   demo_testing:
