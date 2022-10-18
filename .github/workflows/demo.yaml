@@ -1,0 +1,69 @@
+name: GitHub Actions Demo
+env:
+  APPLICATION_NAME    : "DemoFlask"
+  DEPLOY_PACKAGE_NAME : "flask-deploy-ver-${{ github.sha }}"
+  
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+
+on:
+ push:
+    branches: 
+     - main
+   
+jobs:
+  demo_testing:
+    name: test to staging
+    runs-on: ubuntu-latest    
+
+    steps:
+     - name: Print Hello Message in Testing
+       run : echo "Hello World from Testing job"
+       
+     - name: Execure few commands
+       run : |
+         echo "Hello Message1"
+         echo "Hello Message2"
+         echo "Appication name: ${{ env.APPLICATION_NAME }}"
+    
+     - name: List current folder
+       run : ls -la
+   
+     - name: Git clone my repo
+       uses: actions/checkout@v1   
+  
+     - name: List current folder
+       run : ls -la
+  
+  demo_deploy:
+    name: test to deploing
+    runs-on: ubuntu-latest
+
+    needs: [demo_testing]
+    env:
+      VAR1 : "This is Job Level Variable1"
+      VAR2 : "This is Job Lebel Variable2"
+    
+    steps:
+    - name: Print Hello Message in Deploy
+      run : echo "Hello World from Deploy job"
+      
+    - name: Print env vars
+      run : |
+        echo "Var1 = ${{ env.VAR1 }}"
+        echo "Var2 = ${{ env.VAR2 }}"
+        echo "Var3 = $LOCAL_VAR"
+      env:
+        LOCAL_VAR: "This is Superr local Environment variable"
+
+    
+    - name: Printing Deployment package
+      run : echo "Deplyo pakcage name is ${{ env.DEPLOY_PACKAGE_NAME }}"
+    
+    - name: Lets test aws packages if they are here
+      run : aws --version
+
+    - name: Lets test zip packages if they are here
+      run : zip --version   
+      
+    - name: Lets test python packages if they are here
+      run : python3 --version
