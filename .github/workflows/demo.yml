@@ -75,7 +75,7 @@ jobs:
       run : echo "Deplyo pakcage name is ${{ env.DEPLOY_PACKAGE_NAME }}"
     
     - name: Lets test aws packages if they are here
-      run : aws --version
+      run : gcp --version
 
     - name: Lets test zip packages if they are here
       run : zip --version   
