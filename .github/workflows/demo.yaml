@@ -33,6 +33,9 @@ jobs:
   
      - name: List current folder
        run : ls -la
+       
+     - name: Run Python programm
+       run : python application.py
   
   demo_deploy:
     name: test to deploing
